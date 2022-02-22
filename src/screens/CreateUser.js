@@ -26,6 +26,7 @@ function CreateUser(){
                         value={user.firstName}
                         onChange={createChange}
                         placeholder="first name"
+                        
                     ></input>
                 </div>
                 <div>
@@ -37,6 +38,7 @@ function CreateUser(){
                         value={user.lastName}
                         onChange={createChange}
                         placeholder="last name"
+                        
                     ></input>
                 </div>
                 <div>
@@ -48,6 +50,7 @@ function CreateUser(){
                         value={user.userName}
                         onChange={createChange}
                         placeholder="user name"
+                        
                     ></input>
                 </div>
                 <div>
@@ -59,6 +62,7 @@ function CreateUser(){
                         value={user.password}
                         onChange={createChange}
                         placeholder="password"
+                        
                     ></input>
                 </div>
                 <button className='registerBtn' >Register</button>
