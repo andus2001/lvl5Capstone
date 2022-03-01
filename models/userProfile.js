@@ -3,10 +3,10 @@ const Schema = mongoose.Schema
 
 //blueprint
 const userProfileSchema = new Schema({
- userName: { type: String, required: true },
- password: { type: String, required: true},
- firstName: { type: String, required: true},
- lastName: {type: String, required: true}   
+ userName: { type: String },
+ password: { type: String},
+ firstName: { type: String},
+ lastName: {type: String}   
 })
 
 module.exports = mongoose.model("UserProfile", userProfileSchema)
