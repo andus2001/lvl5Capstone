@@ -32,8 +32,17 @@ button{
 }
 .loginBtn {
     color: gray;
+    margin: 10px;
 }
 .loginBtn:hover {
+    font-style: italic;
+    cursor: pointer;
+}
+
+.signupBtn{
+    color: gray;
+}
+.signupBtn:hover {
     font-style: italic;
     cursor: pointer;
 }
@@ -45,3 +54,28 @@ button{
     font-style: italic;
     cursor: pointer;
 }
+
+.container {
+    margin-top: 50px;
+}
+.navbar {
+    margin: 20px 10px 0px 0px;
+    display: flex;
+    justify-content: center;
+}
+    
+a:link {
+    padding: 10px;
+    text-decoration: none;
+    background-color: whitesmoke;
+    margin: 20px;
+    border-radius: 7px;
+    color: gray;    
+}
+a:hover {
+    font-weight: bold;
+}
+a:visited {
+    color: gray;
+}
+
