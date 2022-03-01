@@ -11,7 +11,7 @@ export default function App(){
         <>
             <header>
             </header>
-            <nav>
+            <nav className='navbar'>
                 <Link to='/'>Login</Link>
                 <Link to='/createuser'>Sign Up</Link>
                 <Link to='/profile'>Profile</Link>
