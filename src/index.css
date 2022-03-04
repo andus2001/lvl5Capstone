@@ -30,6 +30,11 @@ button{
     background-color: whitesmoke;
     font-size: large;
 }
+
+label {
+    color: whitesmoke;
+}
+
 .loginBtn {
     color: gray;
     margin: 10px;
@@ -77,5 +82,18 @@ a:hover {
 }
 a:visited {
     color: gray;
+}
+
+
+.createForm {
+    text-align: center;
+}
+
+.registerBtn {
+    color: gray;
+}
+.registerBtn:hover {
+    font-style: italic;
+    cursor: pointer;
 }
 
