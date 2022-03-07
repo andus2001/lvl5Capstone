@@ -15,8 +15,8 @@ function CreateUser(){
 
     return(
         <div>
-            Create User Page
-            <form onSubmit={handleSubmit}>
+            <h1 id='heading'>Create User Page</h1>
+            <form className='createForm' onSubmit={handleSubmit}>
                 <div>
                     <label>First Name:</label>
                     <br/>

@@ -30,11 +30,70 @@ button{
     background-color: whitesmoke;
     font-size: large;
 }
-.loginBtn{
-    color: gray;
 
+label {
+    color: whitesmoke;
 }
+
+.loginBtn {
+    color: gray;
+    margin: 10px;
+}
+.loginBtn:hover {
+    font-style: italic;
+    cursor: pointer;
+}
+
+.signupBtn{
+    color: gray;
+}
+.signupBtn:hover {
+    font-style: italic;
+    cursor: pointer;
+}
+
 .createBtn{
     color: gray;
-   
 }
+.createBtn:hover{
+    font-style: italic;
+    cursor: pointer;
+}
+
+.container {
+    margin-top: 50px;
+}
+.navbar {
+    margin: 20px 10px 0px 0px;
+    display: flex;
+    justify-content: center;
+}
+    
+a:link {
+    padding: 10px;
+    text-decoration: none;
+    background-color: whitesmoke;
+    margin: 20px;
+    border-radius: 7px;
+    color: gray;    
+}
+a:hover {
+    font-weight: bold;
+}
+a:visited {
+    color: gray;
+}
+
+
+.createForm {
+    text-align: center;
+}
+
+.registerBtn {
+    color: gray;
+}
+.registerBtn:hover {
+    font-style: italic;
+    cursor: pointer;
+}
+

@@ -41,8 +41,8 @@ function Login(){
                     />
                 </div>
                 <button className='loginBtn' >Login</button>
+                <button className='signupBtn' onClick={() => navigate("/createuser")} >Sign Up</button>
             </form>
-            <button className='signupBtn' onClick={() => navigate("/createuser")} >Sign Up</button>
         </div>
     )
 }
