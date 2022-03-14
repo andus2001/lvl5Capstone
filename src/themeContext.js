@@ -9,6 +9,7 @@ function ThemeContextProvider(props){
         password:""
     })
     
+    
     const loginChange = e => {
         const { name, value } = e.target
         setLogin(prevLogin => ({
@@ -25,7 +26,7 @@ function ThemeContextProvider(props){
     //             else return an error wrong pass or user
     //         })
     // }
-
+    
     const [user, setUser] = useState({
         firstName:"",
         lastName:"",
@@ -44,12 +45,12 @@ function ThemeContextProvider(props){
     const createUser = savedUser => {
         axios.post("/userProfile", savedUser)
             .then(res => {
-                console.log(res.data)
+                
                 setUser({
-                    firstName:"",
-                    lastName:"",
-                    userName:"",
-                    password:""
+                    firstName:user.firstName,
+                    lastName:user.lastName,
+                    userName:user.name,
+                    password:user.password
                 })
             })
             .catch(err => console.log(err))
@@ -60,6 +61,7 @@ function ThemeContextProvider(props){
     const getCards = () => {
         axios.get("/credentials")
             .then(res => setCards(res.data))
+            console.log(cards)
             .catch(err => console.log(err))
     }
 
