@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import axios from "axios"
 
 const ThemeContext = React.createContext()
@@ -8,6 +8,7 @@ function ThemeContextProvider(props){
         userName:"",
         password:""
     })
+
     
     
     const loginChange = e => {
@@ -33,6 +34,7 @@ function ThemeContextProvider(props){
         userName:"",
         password:""
     })
+    const [array, setArray] = useState([])
     
     const createChange = e => {
         const { name, value } = e.target
@@ -75,7 +77,9 @@ function ThemeContextProvider(props){
                 createUser,
                 createChange,
                 cards,
-                getCards
+                getCards,
+                array,
+                setArray
             }}
         >
             {props.children}

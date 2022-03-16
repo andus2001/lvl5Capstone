@@ -1,11 +1,20 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect} from 'react'
 import { ThemeContext } from '../themeContext'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 function CreateUser(props) {
-    const { user, setUser, createChange } = useContext(ThemeContext)
-    
+    const {  user, setUser, createChange, setCards, cards, array, setArray } = useContext(ThemeContext)
+   
+    useEffect(() => {
+        axios.get("/userProfile")
+        //.then(res => res.json())
+        .then(res => {
+            setArray(prevArray => [...prevArray, res.data])
+            
+        })
+        
+    }, [])
     
     const [newUser, setNewUser] = useState({
         firstName:"",
@@ -18,32 +27,30 @@ function CreateUser(props) {
 
     const handleSubmit = e => {
         e.preventDefault()
-        axios.post('/userProfile',{
-            firstName: user.firstName,
+        const information = {
+             firstName: user.firstName,
             lastName: user.lastName,
             userName: user.userName,
             password: user.password 
-        })
+        }
+        axios.post('/userProfile',information)
             .then(res => {
-                setNewUser({
-            firstName: user.firstName,
-            lastName: user.lastName,
-            userName: user.userName,
-            password: user.password  
-                })
+                setNewUser(information)
+                setArray(prevInfo => [...prevInfo, information])
             })
             
-            navigate("/")
+            
+           // navigate("/")
            
             
-            .catch(err => console.log(err))
-    
-            
+            .catch(err => console.log(err))            
     }
     
-
+    function check(){
+        console.log(array);
+    }
     return (
-        <div>
+        <div onClick={check}>
             <h1 id='heading'>Create User Page</h1>
             <form className='createForm' onSubmit={handleSubmit}>
                 <div>
@@ -97,6 +104,7 @@ function CreateUser(props) {
                 <button className='registerBtn' >Register</button>
                 
             </form>
+            
         </div>
     )
 }
