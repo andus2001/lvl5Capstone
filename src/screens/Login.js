@@ -4,7 +4,7 @@ import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 
 function Login(){
-    const { login, loginChange, array, setArray } = useContext(ThemeContext)
+    const { login,setLogin, loginChange, array, setArray, setActiveProfile, activeProfile } = useContext(ThemeContext)
     
     useEffect(() => {
         axios.get("/userProfile")
@@ -15,19 +15,28 @@ function Login(){
         })
     },[])
 
+    //get one???
+    function checkForProfile(uname){
+        const selectedUser = array[0].filter(list => list.userName === uname.userName)
+        const passwordMatcher = selectedUser.map(pass => pass.password) 
+         
+        if(passwordMatcher[0] === login.password) {
+            setActiveProfile(selectedUser)
+            console.log(activeProfile);
+            navigate('/profile')
+        }else{
+            alert(`Incorrect username or password`)
+            setLogin({userName:'', password:''})
+        }
     
+    }
 
     const navigate = useNavigate()
     
     function handleSubmit(e){
         e.preventDefault()
-        const usernames = array[0].map(element => element)
-        console.log(usernames);
-        const loginData = login.userName
-        //filter out the 'array' to match loginData
-
-        // get the users and verify that login matches one of the users (verifyLogin())
-        //navigate("/profile")
+        console.log(login);
+        checkForProfile(login)
     }
     function check(){
         

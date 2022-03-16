@@ -17,7 +17,7 @@ function UserCard(props){
             </div>
             <div>
                 <h3>Password: </h3>
-                <p>{props.passWord}</p>
+                <p>{props.password}</p>
             </div>
             <button>Edit</button>
         </li>

@@ -5,30 +5,26 @@ import axios from 'axios'
 import UserCard from "../components/UserCard.js"
 
 function Profile(){
-    const { array, setArray } = useContext(ThemeContext)
+    const { activeProfile, setActiveProfile } = useContext(ThemeContext)
 
-    useEffect(() => {
-        axios.get("/userProfile")
-        //.then(res => res.json())
-        .then(res => {
-            setArray(prevArray => [...prevArray, res.data])
-                       
-        })
-    },[])
+   
 
-    const userComp = array[0].map(list => <UserCard key={list._id} firstName={list.firstName} lastName={list.lastName}
+    const userComp = activeProfile.map(list => <UserCard key={list._id} 
         userName={list.userName} password={list.password} />)
     
 
     
-
+        function check(){
+            console.log(activeProfile);
+        }
     return(
         <div>
-            <h1>This is the Profile page.</h1>
-            
+            <h1 onClick={check}>This is the Profile page.</h1>
+            {userComp}
             <ul>
-                {userComp}
+                
             </ul>
+
         </div>
     )
 }

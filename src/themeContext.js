@@ -9,6 +9,7 @@ function ThemeContextProvider(props){
         password:""
     })
 
+
     
     
     const loginChange = e => {
@@ -27,6 +28,7 @@ function ThemeContextProvider(props){
     //             else return an error wrong pass or user
     //         })
     // }
+    const [activeProfile, setActiveProfile] = useState([])
     
     const [user, setUser] = useState({
         firstName:"",
@@ -79,7 +81,9 @@ function ThemeContextProvider(props){
                 cards,
                 getCards,
                 array,
-                setArray
+                setArray,
+                activeProfile,
+                setActiveProfile
             }}
         >
             {props.children}
