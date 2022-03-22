@@ -12,12 +12,12 @@ function UserCard(props){
         >
             <h1 className="heading">{props.firstName} {props.lastName}</h1>
             <div>
-                <h3>Username:  </h3>
-                <p>{props.userName}</p>
+                <h3 className="user-heading">Username:  </h3>
+                <p className="user-content">{props.userName}</p>
             </div>
             <div>
-                <h3>Password: </h3>
-                <p>{props.password}</p>
+                <h3 className="user-heading">Password: </h3>
+                <p className="user-content">{props.password}</p>
             </div>
             <button>Edit</button>
         </li>
