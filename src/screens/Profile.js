@@ -19,13 +19,14 @@ function Profile(){
         }
     return(
         <div>
-            <h1 onClick={check}>This is the Profile page.</h1>
-            {userComp}
+            <h1 id="heading" onClick={check}>This is the Profile page.</h1>
+            <div className="user-card">
+                {userComp}
             <ul>
-                
             </ul>
-
-        </div>
+        </div>  
+    </div>
+        
     )
 }
 
