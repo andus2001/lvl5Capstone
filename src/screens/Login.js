@@ -4,16 +4,16 @@ import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 
 function Login(){
-    const { login,setLogin, loginChange, array, setArray, setActiveProfile, activeProfile } = useContext(ThemeContext)
+    const { login,setLogin, loginChange, array, setArray, setActiveProfile } = useContext(ThemeContext)
+
+    const navigate = useNavigate()
     
     useEffect(() => {
         axios.get("/userProfile")
-        
         .then(res => {
             setArray(prevArray => [...prevArray, res.data])
-                       
         })
-    },[])
+    },[array, setArray])
 
     //get one???
     function checkForProfile(uname){
@@ -22,7 +22,8 @@ function Login(){
          
         if(passwordMatcher[0] === login.password) {
             setActiveProfile(selectedUser)
-            console.log(activeProfile);
+            setLogin({userName:'',password:''})
+
             navigate('/profile')
         }else{
             alert(`Incorrect username or password`)
@@ -31,20 +32,20 @@ function Login(){
     
     }
 
-    const navigate = useNavigate()
+    
     
     function handleSubmit(e){
         e.preventDefault()
         console.log(login);
         checkForProfile(login)
     }
-    function check(){
-        
+    function checkState(){
+        console.log(array[0]);
     }
 
     return(
         <div className='container' >
-            <h1 id='heading' onClick={check}>SAFEKEEPER</h1>
+            <h1 id='heading' onClick={checkState}>SAFEKEEPER</h1>
             <form className='loginForm' onSubmit={handleSubmit}>
                 <div>
                     <label>Username:</label>

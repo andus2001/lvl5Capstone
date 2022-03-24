@@ -19,7 +19,7 @@ function UserCard(props){
                 <h3 className="user-heading">Password: </h3>
                 <p className="user-content">{props.password}</p>
             </div>
-            <button>Edit</button>
+            <button onClick={props.handleEdit}>EDIT</button>
         </li>
     )
 }

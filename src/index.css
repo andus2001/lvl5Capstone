@@ -1,6 +1,9 @@
 body{
     background-color: gray;
 }
+#logOutBtn{
+    margin-left: 43.4%;
+}
 
 #heading{
     text-align: center;

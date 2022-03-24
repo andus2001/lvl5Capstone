@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 function CreateUser(props) {
-    const {  user, setUser, createChange, setCards, cards, array, setArray } = useContext(ThemeContext)
+    const {  user, setUser, createChange,   array, setArray } = useContext(ThemeContext)
    
     useEffect(() => {
         axios.get("/userProfile")
@@ -35,12 +35,14 @@ function CreateUser(props) {
         }
         axios.post('/userProfile',information)
             .then(res => {
+                console.log(res.data)
                 setNewUser(information)
                 setArray(prevInfo => [...prevInfo, information])
+                
             })
             
             
-           // navigate("/")
+           navigate("/")
            
             
             .catch(err => console.log(err))            
