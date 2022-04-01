@@ -3,14 +3,21 @@ import { ThemeContext } from '../themeContext'
 import {useNavigate} from 'react-router-dom'
 
 function CreateUser(){
-    const { user, createChange, createUser } = useContext(ThemeContext)
+    const { user, createChange, setUser, createUser } = useContext(ThemeContext)
     
     const navigate = useNavigate()
 
     const handleSubmit = e => {
         e.preventDefault()
-        createUser()
+        createUser(user)
+        setUser({
+            firstName:"",
+            lastName:"",
+            userName:"",
+            password:""
+        })
         navigate("/")
+        console.log("navigating")
     }
 
     return(

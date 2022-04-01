@@ -8,6 +8,15 @@ function ThemeContextProvider(props){
         userName:"",
         password:""
     })
+
+    const [user, setUser] = useState({
+        firstName:"",
+        lastName:"",
+        userName:"",
+        password:""
+    })
+
+    const [cards, setCards] = useState([])
     
     const loginChange = e => {
         const { name, value } = e.target
@@ -17,21 +26,25 @@ function ThemeContextProvider(props){
         }))
     }
 
-    // const verifyLogin = () => {
-    //     axios.get("/userProfile")
-    //         .then(res => {
-    //             if res.data contains a user that matches login
-    //             then navigate to profile.js
-    //             else return an error wrong pass or user
-    //         })
-    // }
-
-    const [user, setUser] = useState({
-        firstName:"",
-        lastName:"",
-        userName:"",
-        password:""
-    })
+    const verifyLogin = currentUser => {
+        console.log("verifyLogin")
+        let verifyAgainst = e.target.value
+        axios.get(`/userProfile/search/userName?userName=${verifyAgainst.userName}`)
+            .then((res, verifyAgainst) => {
+                console.log(res.data)
+                // if res.data contains a user that matches login
+                // then setCards to usercredentials for that userprofile
+                // else return an error wrong pass or user
+                if(res.data.find(item => item.userName === verifyAgainst.userName)) {
+                    setCards(verifyAgainst)
+                    console.log("user is verified")
+                } else {
+                    setCards([])
+                    console.log("user not found")
+                }
+            })
+            .catch(err => console.log(err))
+    }
     
     const createChange = e => {
         const { name, value } = e.target
@@ -45,17 +58,9 @@ function ThemeContextProvider(props){
         axios.post("/userProfile", savedUser)
             .then(res => {
                 console.log(res.data)
-                setUser({
-                    firstName:"",
-                    lastName:"",
-                    userName:"",
-                    password:""
-                })
             })
             .catch(err => console.log(err))
     }
-    
-    const [cards, setCards] = useState([])
 
     const getCards = () => {
         axios.get("/credentials")
@@ -69,7 +74,9 @@ function ThemeContextProvider(props){
                 login,
                 setLogin,
                 loginChange,
+                verifyLogin,
                 user,
+                setUser,
                 createUser,
                 createChange,
                 cards,

@@ -3,15 +3,18 @@ import { ThemeContext } from '../themeContext'
 import {useNavigate} from 'react-router-dom'
 
 function Login(){
-    const { login, loginChange } = useContext(ThemeContext)
+    const { login, loginChange, verifyLogin } = useContext(ThemeContext)
     
     const navigate = useNavigate()
     
     const handleSubmit = e => {
         e.preventDefault()
-
         // get the users and verify that login matches one of the users (verifyLogin())
+        console.log("handleSubmit" + e.target)
+        verifyLogin(login)
+        console.log("verified" + login)
         navigate("/profile")
+        console.log("navigating")
     }
 
     return(
