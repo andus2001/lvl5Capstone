@@ -2,7 +2,9 @@ import React, { useContext } from "react"
 import { ThemeContext } from "../themeContext.js"
 
 function UserCard(props){
+  
     // Change next line based on models Schema
+
     const { subscription, userName, password } = props
 
     console.log(props)
@@ -12,16 +14,16 @@ function UserCard(props){
             //add css and delete next line
             style={{listStyle: "none"}}
         >
-            <h1>{subscription}</h1>
+            <h1 className="heading">{subscription}</h1>
             <div>
-                <h3>Username: </h3>
-                <p>{userName}</p>
+                <h3 className="user-heading">Username:  </h3>
+                <p className="user-content">{userName}</p>
             </div>
             <div>
-                <h3>Password: </h3>
-                <p>{password}</p>
+                <h3 className="user-heading">Password: </h3>
+                <p className="user-content">{password}</p>
             </div>
-            <button>Edit</button>
+            <button onClick={props.handleEdit}>EDIT</button>
         </li>
     )
 }
