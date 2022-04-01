@@ -8,9 +8,14 @@ function ThemeContextProvider(props){
         userName:"",
         password:""
     })
+    const [user, setUser] = useState({
+        firstName:"",
+        lastName:"",
+        userName:"",
+        password:""
+    })
 
-
-    
+    const [cards, setCards] = useState([])
     
     const loginChange = e => {
         const { name, value } = e.target
@@ -19,7 +24,7 @@ function ThemeContextProvider(props){
             [name]:value
         }))
     }
-
+    
     // const verifyLogin = () => {
     //     axios.get("/userProfile")
     //         .then(res => {
@@ -28,15 +33,10 @@ function ThemeContextProvider(props){
     //             else return an error wrong pass or user
     //         })
     // }
-    const [activeProfile, setActiveProfile] = useState([])
     
-    const [user, setUser] = useState({
-        firstName:"",
-        lastName:"",
-        userName:"",
-        password:""
-    })
-    const [array, setArray] = useState([])
+//     const [activeProfile, setActiveProfile] = useState([])
+   
+//     const [array, setArray] = useState([])
     
     const createChange = e => {
         const { name, value } = e.target
@@ -49,18 +49,10 @@ function ThemeContextProvider(props){
     const createUser = savedUser => {
         axios.post("/userProfile", savedUser)
             .then(res => {
-                
-                setUser({
-                    firstName:user.firstName,
-                    lastName:user.lastName,
-                    userName:user.name,
-                    password:user.password
-                })
+                console.log(res.data)
             })
             .catch(err => console.log(err))
     }
-    
-    const [cards, setCards] = useState([])
 
     const getCards = () => {
         axios.get("/credentials")
@@ -75,7 +67,9 @@ function ThemeContextProvider(props){
                 login,
                 setLogin,
                 loginChange,
+                verifyLogin,
                 user,
+                setUser,
                 createUser,
                 createChange,
                 cards,
