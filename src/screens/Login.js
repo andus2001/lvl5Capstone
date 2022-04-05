@@ -5,24 +5,25 @@ import axios from 'axios'
 
 function Login(){
 //   matthew's code
-//     const { login, loginChange, verifyLogin } = useContext(ThemeContext)
+     const { login, loginChange, verifyLogin } = useContext(ThemeContext)
     
-//     const navigate = useNavigate()
+    const navigate = useNavigate()
     
-//     const handleSubmit = e => {
-//         e.preventDefault()
-//         // get the users and verify that login matches one of the users (verifyLogin())
-//         console.log("handleSubmit" + e.target)
-//         verifyLogin(login)
-//         console.log("verified" + login)
-//         navigate("/profile")
-//         console.log("navigating")
+    const handleSubmit = e => {
+        e.preventDefault()
+        // get the users and verify that login matches one of the users (verifyLogin())
+        console.log("handleSubmit" + e.target)
+        verifyLogin(login)
+        console.log("verified" + login)
+        navigate("/profile")
+        console.log("navigating")
+    }
   
 // master code
   
 //     const { login,setLogin, loginChange, array, setArray, setActiveProfile } = useContext(ThemeContext)
 
-//     const navigate = useNavigate()
+//    const navigate = useNavigate()
     
 //     useEffect(() => {
 //         axios.get("/userProfile")
@@ -57,7 +58,7 @@ function Login(){
 
     return(
         <div className='container' >
-            <h1 id='heading' onClick={checkState}>SAFEKEEPER</h1>
+            <h1 id='heading' >SAFEKEEPER</h1>
             <form className='loginForm' onSubmit={handleSubmit}>
                 <div>
                     <label>Username:</label>
