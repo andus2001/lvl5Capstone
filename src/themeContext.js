@@ -34,9 +34,9 @@ function ThemeContextProvider(props){
     //         })
     // }
     
-//     const [activeProfile, setActiveProfile] = useState([])
+    const [activeProfile, setActiveProfile] = useState([])
    
-//     const [array, setArray] = useState([])
+    const [array, setArray] = useState([])
     
     const createChange = e => {
         const { name, value } = e.target
