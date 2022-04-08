@@ -25,14 +25,23 @@ function ThemeContextProvider(props){
         }))
     }
     
-    // const verifyLogin = () => {
-    //     axios.get("/userProfile")
-    //         .then(res => {
-    //             if res.data contains a user that matches login
-    //             then navigate to profile.js
-    //             else return an error wrong pass or user
-    //         })
-    // }
+    const verifyLogin = (username, password) => {
+        axios.get("/userProfile")
+            .then(res => {
+
+                // if res.data contains a user that matches login
+                // then navigate to profile.js
+                // else return an error wrong pass or user
+
+                const data = res.data
+                const thisOne = data.filter(entry => username === entry.userName)
+                if(password === thisOne.password){
+                    alert(`credentials accepted`)
+                }else{
+                    alert(`incorrect login information`)
+                }
+            })
+    }
     
     const [activeProfile, setActiveProfile] = useState([])
    

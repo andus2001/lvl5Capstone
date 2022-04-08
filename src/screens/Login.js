@@ -3,21 +3,8 @@ import { ThemeContext } from '../themeContext'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-function Login() {
-    // const { login, loginChange, verifyLogin } = useContext(ThemeContext)
 
-    // const navigate = useNavigate()
-
-    // const handleSubmit = e => {
-    //     e.preventDefault()
-    //     // get the users and verify that login matches one of the users (verifyLogin())
-    //     console.log("handleSubmit" + e.target)
-    //     verifyLogin(login)
-    //     console.log("verified" + login)
-    //     navigate("/profile")
-    //     console.log("navigating")
-
-        //master
+function Login(){
     const { login, setLogin, loginChange, array, setArray, setActiveProfile } = useContext(ThemeContext)
 
     const navigate = useNavigate()
@@ -30,7 +17,6 @@ function Login() {
             .catch(err => console.log(err))
     }, [array, setArray])
 
-        // get one???
     function checkForProfile(uname) {
         const selectedUser = array[0].filter(list => list.userName === uname.userName)
         const passwordMatcher = selectedUser.map(pass => pass.password)
@@ -54,7 +40,7 @@ function Login() {
 
     return (
         <div className='container' >
-            <h1 id='heading'>SAFEKEEPER</h1>
+            <h1 id='heading' >SAFEKEEPER</h1>
             <form className='loginForm' onSubmit={handleSubmit}>
                 <div>
                     <label>Username:</label>
