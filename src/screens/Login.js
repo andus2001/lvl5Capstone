@@ -10,18 +10,23 @@ function Login(){
     const navigate = useNavigate()
 
     useEffect(() => {
+        getData()
+    }, [])
+
+    const getData = () => {
         axios.get("/userProfile")
             .then(res => {
                 setArray(prevArray => [...prevArray, res.data])
             })
             .catch(err => console.log(err))
-    }, [array, setArray])
+    }
 
     function checkForProfile(uname) {
         const selectedUser = array[0].filter(list => list.userName === uname.userName)
         const passwordMatcher = selectedUser.map(pass => pass.password)
 
-        if (passwordMatcher[0] === login.password) {
+        if (passwordMatcher === login.password) {
+            console.log(passwordMatcher)
             setActiveProfile(selectedUser)
             setLogin({ userName: '', password: '' })
 

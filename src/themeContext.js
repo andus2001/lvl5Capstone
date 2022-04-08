@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import axios from "axios"
 
 const ThemeContext = React.createContext()
@@ -25,24 +25,6 @@ function ThemeContextProvider(props){
         }))
     }
     
-    const verifyLogin = (username, password) => {
-        axios.get("/userProfile")
-            .then(res => {
-
-                // if res.data contains a user that matches login
-                // then navigate to profile.js
-                // else return an error wrong pass or user
-
-                const data = res.data
-                const thisOne = data.filter(entry => username === entry.userName)
-                if(password === thisOne.password){
-                    alert(`credentials accepted`)
-                }else{
-                    alert(`incorrect login information`)
-                }
-            })
-    }
-    
     const [activeProfile, setActiveProfile] = useState([])
    
     const [array, setArray] = useState([])
@@ -56,6 +38,7 @@ function ThemeContextProvider(props){
     }
     
     const createUser = savedUser => {
+        console.log(savedUser)
         axios.post("/userProfile", savedUser)
             .then(res => {
                 console.log(res.data)
