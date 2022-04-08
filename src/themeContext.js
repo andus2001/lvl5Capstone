@@ -67,7 +67,7 @@ function ThemeContextProvider(props){
                 login,
                 setLogin,
                 loginChange,
-                verifyLogin,
+                // verifyLogin,
                 user,
                 setUser,
                 createUser,
